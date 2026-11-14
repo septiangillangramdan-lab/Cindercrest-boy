@@ -1,0 +1,29 @@
+[build]
+  publish = "site"
+  functions = "netlify/functions"
+
+# Panel admin: halaman dibuka lewat /adminpanelboy (file site/adminpanelboy.html).
+# Jangan diindeks mesin pencari & jangan di-cache.
+[[headers]]
+  for = "/adminpanelboy*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[redirects]]
+  from = "/adminpanelboy"
+  to = "/adminpanelboy.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/adminpanelboy/"
+  to = "/adminpanelboy.html"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"
