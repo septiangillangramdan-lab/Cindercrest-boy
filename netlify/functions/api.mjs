@@ -3,7 +3,10 @@ import crypto from "node:crypto";
 
 export const config = { path: "/api/*" };
 
-const ROLES = ["Ketua", "Tangan Kanan", "Wakil", "Member"];
+const ROLES = ["Ketua", "Tangan Kanan", "Tangan Kiri", "Wakil", "Member"];
+
+// Bedrock: nama in-game diawali titik (.Nama), Java: apa adanya
+const gameName = (a) => (a.edition === "Bedrock" ? "." : "") + a.mcName.replace(/^\.+/, "");
 const SESSION_MS = 1000 * 60 * 60 * 12; // login berlaku 12 jam
 
 const DEFAULTS = {
@@ -169,8 +172,9 @@ export default async (req) => {
       if (method === "POST" && m[2]) {
         const role = ROLES.includes(body.role) ? body.role : "Member";
         const members = await getMembers(s);
-        if (!members.some((x) => x.name.toLowerCase() === app.mcName.toLowerCase()))
-          members.push({ id: uid(), name: app.mcName, role });
+        const name = gameName(app);
+        if (!members.some((x) => x.name.toLowerCase() === name.toLowerCase()))
+          members.push({ id: uid(), name, role });
         await s.setJSON("members", members);
         await s.setJSON(key, { ...app, status: "accepted" });
         return json({ ok: true });
