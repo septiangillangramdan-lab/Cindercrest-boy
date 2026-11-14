@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hallowed Sin — Pendaftaran Tim Minecraft</title>
+<meta name="description" content="Daftar jadi member tim Minecraft Hallowed Sin. Lihat peraturan, syarat, dan anggota tim.">
+<meta name="theme-color" content="#070506">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#top"><img src="/logo.png" alt="">HALLOWED SIN</a>
+  <nav>
+    <a href="#anggota">Anggota</a><a href="#peraturan">Peraturan</a><a href="#syarat">Syarat</a><a href="#daftar">Daftar</a>
+  </nav>
+</div></header>
+
+<main id="top" class="wrap">
+  <div class="hero">
+    <img src="/logo.png" alt="Logo tim Hallowed Sin" width="300" height="289">
+    <h1 class="pix">HALLOWED SIN</h1>
+    <p>Tim Minecraft yang solid, saling jaga, dan siap bangun dunia bareng. Baca peraturannya, lalu gabung bersama kami.</p>
+    <div class="stats">
+      <div class="stat"><b id="count">–</b><span>Anggota tim</span></div>
+      <div class="stat"><span>Status pendaftaran</span><br><span id="status" class="badge-open">MEMUAT…</span></div>
+    </div>
+    <a class="btn" href="#daftar">Daftar Sekarang</a>
+  </div>
+
+  <section id="anggota">
+    <h2 class="sec-title">ANGGOTA TIM</h2>
+    <div id="members"><div class="empty">Memuat anggota…</div></div>
+  </section>
+
+  <section id="peraturan">
+    <h2 class="sec-title">PERATURAN</h2>
+    <div class="card"><ol class="list" id="rules"></ol></div>
+  </section>
+
+  <section id="syarat">
+    <h2 class="sec-title">SYARAT MASUK</h2>
+    <div class="card"><ol class="list" id="reqs"></ol></div>
+  </section>
+
+  <section id="daftar">
+    <h2 class="sec-title">FORMULIR PENDAFTARAN</h2>
+    <div class="card" id="formbox">
+      <form id="form" novalidate>
+        <label class="f">Nama asli
+          <input type="text" name="realName" maxlength="80" autocomplete="name" required placeholder="Contoh: Budi Santoso">
+        </label>
+        <label class="f">Nama Minecraft
+          <input type="text" name="mcName" maxlength="32" autocomplete="off" required placeholder="Username in-game kamu">
+        </label>
+        <div class="f" style="display:grid;gap:6px;font-size:14px;color:#d9d3f5;font-weight:500">Versi Minecraft
+          <div class="seg">
+            <input type="radio" name="edition" id="ed-java" value="Java"><label for="ed-java">Java Edition</label>
+            <input type="radio" name="edition" id="ed-bed" value="Bedrock"><label for="ed-bed">Bedrock Edition</label>
+          </div>
+        </div>
+        <label class="f">Nomor HP <small>(WhatsApp aktif, agar admin bisa menghubungi)</small>
+          <input type="tel" name="phone" maxlength="20" inputmode="tel" autocomplete="tel" required placeholder="08xxxxxxxxxx">
+        </label>
+        <label class="f">Alasan ingin bergabung
+          <textarea name="reason" maxlength="1000" required placeholder="Ceritakan kenapa kamu ingin masuk tim kami…"></textarea>
+        </label>
+        <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div id="formmsg" class="msg err hidden" role="alert"></div>
+        <button class="btn" id="submit" type="submit">Kirim Pendaftaran</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© Hallowed Sin · Tim Minecraft</div></footer>
+<script src="/app.js"></script>
+</body>
+</html>
